@@ -7,6 +7,8 @@ body {
   font-weight: 500;
   line-height: 1.5;
   width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .header-layout {
@@ -273,12 +275,10 @@ p {
     z-index: -1;
   }
 
-  /* TODO */
   .shorten-form {
     position: relative;
     width: 100vw;
-    max-width: 100%;
-    box-sizing: border-box;
+    width: calc(100vw - 140px);
     padding: 0;
     margin: 0;
     height: 100%;
@@ -288,7 +288,7 @@ p {
 
   .page-info-part-layout-div {
     position: absolute;
-    top: -120px;
+    top: -75px;
   }
 
   .shorten-it-btn {
