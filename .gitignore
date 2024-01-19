@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Avoid accidental Sketch file upload 
 ###############################################
 ## Please do not remove line 5 - thanks! 🙂 ##
@@ -13,6 +14,8 @@
 
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
+=======
+>>>>>>> master
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -23,7 +26,12 @@
 # testing
 /coverage
 
+<<<<<<< HEAD
 
+=======
+# production
+/build
+>>>>>>> master
 
 # misc
 .DS_Store
@@ -31,7 +39,15 @@
 .env.development.local
 .env.test.local
 .env.production.local
+<<<<<<< HEAD
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+=======
+.env
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+>>>>>>> master
