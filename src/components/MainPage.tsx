@@ -63,7 +63,10 @@ const MainPage = () => {
           </form>
         </div>
 
-        <div style={{ paddingBottom: "100px" }}>
+        <div
+          className="advanced-statistic-desktop"
+          style={{ paddingBottom: "100px" }}
+        >
           <h2 className="smaller-title">Advanced statistics</h2>
           <p>
             Track how your links are performing across the web with our advanced
@@ -72,7 +75,7 @@ const MainPage = () => {
         </div>
 
         <div className="info-container">
-          <div style={{ padding: "0 25px" }}>
+          <div className="info-container-div">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={brandRegocnition} alt="brand regognition" />
@@ -87,7 +90,7 @@ const MainPage = () => {
           </div>
           <div className="blue-line"></div>
 
-          <div style={{ padding: "0 25px" }}>
+          <div className="info-container-div">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={detailedRecords} alt="brand regognition" />
@@ -103,7 +106,7 @@ const MainPage = () => {
 
           <div className="blue-line"></div>
 
-          <div style={{ padding: "0 25px" }}>
+          <div className="info-container-div">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={fullyCustomizable} alt="brand regognition" />
