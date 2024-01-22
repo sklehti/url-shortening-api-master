@@ -7,6 +7,7 @@ import fullyCustomizable from "../images/icon-fully-customizable.svg";
 import bgShortenMobile from "./../images/bg-shorten-mobile.svg";
 import bgShortenDesktop from "./../images/bg-shorten-desktop.svg";
 import bgBoostMobile from "./../images/bg-boost-mobile.svg";
+import bgBoostDesktop from "./../images/bg-boost-desktop.svg";
 
 const MainPage = () => {
   const handleUrlShorten = (event: React.FormEvent<HTMLFormElement>) => {
@@ -75,7 +76,7 @@ const MainPage = () => {
         </div>
 
         <div className="info-container">
-          <div className="info-container-div">
+          <div className="info-container-div info-container-div-1">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={brandRegocnition} alt="brand regognition" />
@@ -83,14 +84,14 @@ const MainPage = () => {
               <h3>Brand Recognition</h3>
               <p>
                 Boost your brand recognition with each click. Generic links
-                don&apos;t meaan a thing. Branded links help instil confidence
-                in your content.
+                don&apos;t mean a thing. Branded links help instil confidence in
+                your content.
               </p>
             </div>
           </div>
           <div className="blue-line"></div>
 
-          <div className="info-container-div">
+          <div className="info-container-div info-container-div-2">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={detailedRecords} alt="brand regognition" />
@@ -106,7 +107,7 @@ const MainPage = () => {
 
           <div className="blue-line"></div>
 
-          <div className="info-container-div">
+          <div className="info-container-div info-container-div-3">
             <div className="info-layout">
               <div className="icon-layout">
                 <img src={fullyCustomizable} alt="brand regognition" />
@@ -125,6 +126,11 @@ const MainPage = () => {
         <img
           className="bg-boost-mobile"
           src={bgBoostMobile}
+          alt="boost background"
+        />
+        <img
+          className="bg-boost-desktop"
+          src={bgBoostDesktop}
           alt="boost background"
         />
         <div className="bg-boost-layout-div">
