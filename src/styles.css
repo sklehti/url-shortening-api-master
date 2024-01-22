@@ -133,6 +133,15 @@ p {
   padding: 70px 0;
 }
 
+.footer-layout {
+  background-color: hsl(255, 11%, 22%);
+  padding: 30px;
+}
+
+.footer-title {
+  padding-top: 15px;
+}
+
 @media only screen and (max-width: 900px) {
   body {
     text-align: center;
@@ -385,5 +394,31 @@ p {
 
   .bg-boost-layout-div {
     text-align: center;
+  }
+
+  .footer-layout {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    color: #fff;
+  }
+
+  .column-1 {
+    /* grid-column: 1/12; */
+    grid-column: 2/3;
+  }
+  .column-2 {
+    grid-column: 5/6;
+    padding: 0 15px;
+  }
+  .column-3 {
+    padding: 0 15px;
+  }
+  .column-4 {
+    padding: 0 15px;
+  }
+  .column-5 {
+    /* grid-column: 5/12; */
+    grid-column: 10 / 11;
+    padding-top: 25px;
   }
 }
