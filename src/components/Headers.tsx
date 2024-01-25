@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
 
 const Headers = () => {
+  const menuOpen = useAppSelector((state) => state.hamburgermenu.value);
+  const dispatch = useAppDispatch();
+
+  const navigationModal: HTMLElement | null =
+    document.getElementById("navigation-mobile");
+
   const handleNavigation = () => {
-    console.log("Otsikot tänne.");
+    if (navigationModal) {
+      console.log("Otsikot tänne.");
+
+      dispatch(openMenu());
+
+      // navigationModal.style.display = "initial";
+    }
   };
 
   return (

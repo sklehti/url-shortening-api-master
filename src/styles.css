@@ -27,6 +27,10 @@ h3 {
   margin: 0;
 }
 
+h4 {
+  font-size: 22px;
+}
+
 p {
   padding: 0 25px;
   color: hsl(0, 0%, 75%);
@@ -98,6 +102,10 @@ p {
   align-items: center;
 }
 
+.page-info-part-layout-div {
+  padding: 25px;
+}
+
 .advanced-statistic-desktop {
   max-width: 500px;
 }
@@ -136,10 +144,41 @@ p {
 .footer-layout {
   background-color: hsl(255, 11%, 22%);
   padding: 30px;
+  color: #fff;
 }
 
 .footer-title {
   padding-top: 15px;
+  font-size: 40px;
+}
+
+.column-5 > img {
+  height: 30px;
+  width: auto;
+  padding: 20px;
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 450px) {
+  .page-info-part-layout-div {
+    padding: 25px 10px;
+  }
+
+  .shorten-it-btn {
+    margin: 8px 15px 15px 15px;
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
+  .shorten-it-input {
+    padding: 15px 20px;
+    margin: 15px 15px 8px 15px;
+    font-size: 16px;
+  }
+
+  .info-layout {
+    padding-top: 30px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -168,6 +207,32 @@ p {
     width: 30px;
     height: 6px;
     background-color: #fff;
+  }
+
+  #navigation-mobile {
+    /* display: none; */
+
+    position: absolute;
+    height: auto;
+    top: 20px;
+    left: 25px;
+    width: calc(100% - 50px);
+    background-color: hsl(257, 27%, 26%);
+    border-radius: 10px;
+    padding: 30px 0;
+  }
+
+  #navigation-mobile > h3 {
+    color: #fff;
+    padding: 10px 0;
+    font-size: 20px;
+  }
+
+  hr {
+    border: 1px solid #fff;
+    opacity: 0.25;
+    float: center;
+    width: 80%;
   }
 
   .first-section-mobile {
@@ -400,10 +465,15 @@ p {
     display: grid;
     grid-template-columns: repeat(11, 1fr);
     color: #fff;
+    font-size: 15px;
+  }
+
+  .footer-title {
+    font-size: 28px;
+    padding-top: 20px;
   }
 
   .column-1 {
-    /* grid-column: 1/12; */
     grid-column: 2/3;
   }
   .column-2 {
@@ -417,8 +487,16 @@ p {
     padding: 0 15px;
   }
   .column-5 {
-    /* grid-column: 5/12; */
     grid-column: 10 / 11;
-    padding-top: 25px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column-5 > img {
+    height: 20px;
+    width: auto;
+    padding: 1vw;
+    padding-top: 35px;
   }
 }

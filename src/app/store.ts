@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "../features/counter/counterSlice";
-// ...
+import hamburgermenuSlice from "../features/hamburgermenuSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
+    hamburgermenu: hamburgermenuSlice,
   },
 });
 

@@ -24,10 +24,12 @@ function App() {
 
   return (
     <div className="container">
-      {/*  {count}
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-      -------------------------- */}
+      {/*  <div>
+        {count}
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+        --------------------------
+      </div> */}
       <Headers />
       <MainPage />
       <Footer />

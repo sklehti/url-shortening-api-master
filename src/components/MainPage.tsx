@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import firstImgMobile from "../images/illustration-working-mobile.svg";
 import firstImg from "../images/illustration-working.svg";
 import brandRegocnition from "../images/icon-brand-recognition.svg";
@@ -9,21 +9,81 @@ import bgShortenDesktop from "./../images/bg-shorten-desktop.svg";
 import bgBoostMobile from "./../images/bg-boost-mobile.svg";
 import bgBoostDesktop from "./../images/bg-boost-desktop.svg";
 
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
+
 const MainPage = () => {
+  const menuOpen = useAppSelector((state) => state.hamburgermenu.value);
+  const dispatch = useAppDispatch();
+  console.log(menuOpen, "KJLDF");
+
+  const ref = React.useRef<HTMLInputElement>(null);
+
   const handleUrlShorten = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     console.log("Lyhennä ulr osoite täällä.");
   };
 
+  useEffect(() => {
+    const navigationModal: HTMLElement | null =
+      document.getElementById("navigation-mobile");
+
+    const checkIfClickedOutside = (e: any) => {
+      if (ref.current && !ref.current.contains(e.target) && menuOpen === true) {
+        console.log("sdflkj", navigationModal);
+
+        if (navigationModal) {
+          // navigationModal.style.display = "none";
+          dispatch(closeMenu());
+        }
+      }
+    };
+
+    document.addEventListener("click", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOutside);
+    };
+  }, []);
+
   return (
-    <div>
+    <div style={{ position: "relative" }}>
+      {menuOpen} toimii
+      {menuOpen === true ? (
+        <div id="navigation-mobile" className="navigation-mobile">
+          <h3 ref={ref}>
+            <a>Features</a>
+          </h3>
+
+          <h3>
+            <a>Pricing</a>
+          </h3>
+
+          <h3>
+            <a>Resources</a>
+          </h3>
+
+          <hr />
+
+          <h3>
+            <a>Login</a>
+          </h3>
+
+          <button
+            className="get-started-btn"
+            style={{ padding: "15px", width: "80%", fontSize: "20px" }}
+          >
+            Sign Up
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
       <img
         className="first-img"
         src={firstImgMobile}
         alt="person behind the desk."
       />
-
       <div className="first-section-desktop">
         <div className="first-section-mobile">
           <h2 className="main-title">More than just shorter links</h2>
@@ -40,9 +100,8 @@ const MainPage = () => {
           alt="person behind the desk."
         />
       </div>
-
       <div className="page-info-part-layout">
-        <div className="page-info-part-layout-div" style={{ padding: "25px" }}>
+        <div className="page-info-part-layout-div">
           <form className="shorten-form" onSubmit={handleUrlShorten}>
             <img
               className="bg-shorten-mobile"
@@ -121,7 +180,6 @@ const MainPage = () => {
           </div>
         </div>
       </div>
-
       <div className="bg-boost-layout">
         <img
           className="bg-boost-mobile"
