@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
 
@@ -6,16 +6,11 @@ const Headers = () => {
   const menuOpen = useAppSelector((state) => state.hamburgermenu.value);
   const dispatch = useAppDispatch();
 
-  const navigationModal: HTMLElement | null =
-    document.getElementById("navigation-mobile");
-
   const handleNavigation = () => {
-    if (navigationModal) {
-      console.log("Otsikot tänne.");
-
+    if (menuOpen === false) {
       dispatch(openMenu());
-
-      // navigationModal.style.display = "initial";
+    } else if (menuOpen === true) {
+      dispatch(closeMenu());
     }
   };
 

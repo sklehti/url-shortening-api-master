@@ -7,12 +7,12 @@ import {
   increment,
   incrementByAmount,
 } from "./features/counter/counterSlice";
+
 import Headers from "./components/Headers";
 import MainPage from "./components/MainPage";
 import Footer from "./components/Footer";
 
 function App() {
-  // The `state` arg is correctly typed as `RootState` already
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
 

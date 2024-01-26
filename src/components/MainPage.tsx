@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import firstImgMobile from "../images/illustration-working-mobile.svg";
 import firstImg from "../images/illustration-working.svg";
 import brandRegocnition from "../images/icon-brand-recognition.svg";
@@ -15,8 +15,6 @@ import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
 const MainPage = () => {
   const menuOpen = useAppSelector((state) => state.hamburgermenu.value);
   const dispatch = useAppDispatch();
-  console.log(menuOpen, "KJLDF");
-
   const ref = React.useRef<HTMLInputElement>(null);
 
   const handleUrlShorten = (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,56 +23,42 @@ const MainPage = () => {
     console.log("Lyhennä ulr osoite täällä.");
   };
 
-  useEffect(() => {
-    const navigationModal: HTMLElement | null =
-      document.getElementById("navigation-mobile");
-
-    const checkIfClickedOutside = (e: any) => {
-      if (ref.current && !ref.current.contains(e.target) && menuOpen === true) {
-        console.log("sdflkj", navigationModal);
-
-        if (navigationModal) {
-          // navigationModal.style.display = "none";
-          dispatch(closeMenu());
-        }
-      }
-    };
-
-    document.addEventListener("click", checkIfClickedOutside);
-    return () => {
-      document.removeEventListener("click", checkIfClickedOutside);
-    };
-  }, []);
+  const closeModal = (e: React.MouseEvent) => {
+    if (ref.current === e.target) {
+      dispatch(closeMenu());
+    }
+  };
 
   return (
     <div style={{ position: "relative" }}>
-      {menuOpen} toimii
       {menuOpen === true ? (
-        <div id="navigation-mobile" className="navigation-mobile">
-          <h3 ref={ref}>
-            <a>Features</a>
-          </h3>
+        <div onClick={closeModal} ref={ref} className="modal-bg">
+          <div id="navigation-mobile" className="navigation-mobile">
+            <h3>
+              <a>Features</a>
+            </h3>
 
-          <h3>
-            <a>Pricing</a>
-          </h3>
+            <h3>
+              <a>Pricing</a>
+            </h3>
 
-          <h3>
-            <a>Resources</a>
-          </h3>
+            <h3>
+              <a>Resources</a>
+            </h3>
 
-          <hr />
+            <hr />
 
-          <h3>
-            <a>Login</a>
-          </h3>
+            <h3>
+              <a>Login</a>
+            </h3>
 
-          <button
-            className="get-started-btn"
-            style={{ padding: "15px", width: "80%", fontSize: "20px" }}
-          >
-            Sign Up
-          </button>
+            <button
+              className="get-started-btn"
+              style={{ padding: "15px", width: "80%", fontSize: "20px" }}
+            >
+              Sign Up
+            </button>
+          </div>
         </div>
       ) : (
         <></>
