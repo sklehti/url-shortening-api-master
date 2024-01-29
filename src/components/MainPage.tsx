@@ -8,14 +8,18 @@ import bgShortenMobile from "./../images/bg-shorten-mobile.svg";
 import bgShortenDesktop from "./../images/bg-shorten-desktop.svg";
 import bgBoostMobile from "./../images/bg-boost-mobile.svg";
 import bgBoostDesktop from "./../images/bg-boost-desktop.svg";
-
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
+import MobileNavigation from "./MobileNavigation";
 
 const MainPage = () => {
-  const menuOpen = useAppSelector((state) => state.hamburgermenu.value);
-  const dispatch = useAppDispatch();
-  const ref = React.useRef<HTMLInputElement>(null);
+  $(function () {
+    $(".link").on("click", function () {
+      $("#myModal").css("display", "block");
+    });
+
+    $(".close").on("click", function () {
+      $("#myModal").css("display", "none");
+    });
+  });
 
   const handleUrlShorten = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,46 +27,25 @@ const MainPage = () => {
     console.log("Lyhennä ulr osoite täällä.");
   };
 
-  const closeModal = (e: React.MouseEvent) => {
-    if (ref.current === e.target) {
-      dispatch(closeMenu());
-    }
-  };
-
   return (
     <div style={{ position: "relative" }}>
-      {menuOpen === true ? (
-        <div onClick={closeModal} ref={ref} className="modal-bg">
-          <div id="navigation-mobile" className="navigation-mobile">
-            <h3>
-              <a>Features</a>
-            </h3>
-
-            <h3>
-              <a>Pricing</a>
-            </h3>
-
-            <h3>
-              <a>Resources</a>
-            </h3>
-
-            <hr />
-
-            <h3>
-              <a>Login</a>
-            </h3>
-
-            <button
-              className="get-started-btn"
-              style={{ padding: "15px", width: "80%", fontSize: "20px" }}
-            >
-              Sign Up
-            </button>
-          </div>
+      <div id="myModal" className="modal">
+        <div className="modal-content">
+          <span className="close">&times;</span>
+          <p
+            style={{
+              color: "hsl(257, 27%, 26%",
+              fontSize: "24px",
+              fontWeight: "800",
+            }}
+          >
+            Coming later..
+          </p>
         </div>
-      ) : (
-        <></>
-      )}
+      </div>
+
+      <MobileNavigation />
+
       <img
         className="first-img"
         src={firstImgMobile}
@@ -75,7 +58,9 @@ const MainPage = () => {
             Build your brand&apos;s recognition and get detailed insights on how
             your links are performing.
           </p>
-          <button className="get-started-btn">Get started</button>
+          <button className="get-started-btn link" style={{ color: "#fff" }}>
+            Get started
+          </button>
         </div>
 
         <img
@@ -177,7 +162,9 @@ const MainPage = () => {
         />
         <div className="bg-boost-layout-div">
           <h2 style={{ color: "#fff" }}>Boost your links today</h2>
-          <button className="get-started-btn">Get started</button>
+          <button className="get-started-btn link" style={{ color: "#fff" }}>
+            Get started
+          </button>
         </div>
       </div>
     </div>

@@ -13,49 +13,57 @@ const Footer = () => {
       <div className="column-2">
         <h4>Features</h4>
         <div style={{ paddingBottom: "10px" }}>
-          <a>Link Shortening</a>
+          <a className="link">Link Shortening</a>
         </div>
         <div style={{ paddingBottom: "10px" }}>
-          <a>Branded Links</a>
+          <a className="link">Branded Links</a>
         </div>
         <div style={{ paddingBottom: "20px" }}>
-          <a>Analytics</a>
+          <a className="link">Analytics</a>
         </div>
       </div>
       <div className="column-3">
         <h4>Resources</h4>
         <div style={{ paddingBottom: "10px" }}>
-          <a>Blog</a>
+          <a className="link">Blog</a>
         </div>
 
         <div style={{ paddingBottom: "10px" }}>
-          <a>Developers</a>
+          <a className="link">Developers</a>
         </div>
 
         <div style={{ paddingBottom: "20px" }}>
-          <a>Support</a>
+          <a className="link">Support</a>
         </div>
       </div>
       <div className="column-4">
         <h4>Company</h4>
         <div style={{ paddingBottom: "10px" }}>
-          <a>About</a>
+          <a className="link">About</a>
         </div>
         <div style={{ paddingBottom: "10px" }}>
-          <a>Our Team</a>
+          <a className="link">Our Team</a>
         </div>
         <div style={{ paddingBottom: "10px" }}>
-          <a>Careers</a>
+          <a className="link">Careers</a>
         </div>
         <div style={{ paddingBottom: "20px" }}>
-          <a>Contact</a>
+          <a className="link">Contact</a>
         </div>
       </div>
       <div className="column-5">
-        <img src={facebookIcon} alt="facebook icon" />
-        <img src={twitterIcon} alt="twitter icon" />
-        <img src={pinterestIcon} alt="pinterest icon" />
-        <img src={instagramIcon} alt="instaram icon" />
+        <a className="link">
+          <img src={facebookIcon} alt="facebook icon" />
+        </a>
+        <a className="link">
+          <img src={twitterIcon} alt="twitter icon" />
+        </a>
+        <a className="link">
+          <img src={pinterestIcon} alt="pinterest icon" />
+        </a>
+        <a className="link">
+          <img src={instagramIcon} alt="instagram icon" />
+        </a>
       </div>
     </div>
   );
