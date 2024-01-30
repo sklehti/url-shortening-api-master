@@ -9,8 +9,24 @@ import bgShortenDesktop from "./../images/bg-shorten-desktop.svg";
 import bgBoostMobile from "./../images/bg-boost-mobile.svg";
 import bgBoostDesktop from "./../images/bg-boost-desktop.svg";
 import MobileNavigation from "./MobileNavigation";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { shortenLink } from "../features/shortenLinkSlice";
+import { originalLink } from "../features/originalLinkSlice";
+import { allLinks } from "../features/allLinksSlice";
+
+import { fetchShortenLink } from "./services/urlShorteningService";
+import AllLinks from "./AllLinks";
+
+interface AllLinksState {
+  values: { shortenLink: string; originalLink: string }[];
+}
 
 const MainPage = () => {
+  const shortLink = useAppSelector((state) => state.shortenLink.value);
+  const longLink = useAppSelector((state) => state.originalLink.value);
+
+  const dispatch = useAppDispatch();
+
   $(function () {
     $(".link").on("click", function () {
       $("#myModal").css("display", "block");
@@ -21,10 +37,38 @@ const MainPage = () => {
     });
   });
 
-  const handleUrlShorten = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLinkInput = (e: React.FormEvent<HTMLInputElement>) => {
+    $("#shorten-input").css("border", "none");
+    $("#shorten-input").removeClass("warning-input-placeholder");
+    $(".warning-text").css("display", "none");
+
+    dispatch(originalLink(e.currentTarget.value));
+  };
+
+  const handleUrlShorten = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Lyhennä ulr osoite täällä.");
+    try {
+      if (longLink.length < 1) {
+        $("#shorten-input").css("border", "3px solid  hsl(0, 87%, 67%)");
+        $("#shorten-input").addClass("warning-input-placeholder");
+        $(".warning-text").css("display", "initial");
+      } else {
+        const result = await fetchShortenLink(longLink);
+
+        dispatch(shortenLink(result));
+
+        if (shortLink && longLink) {
+          dispatch(
+            allLinks({
+              values: { shortenLink: shortLink, originalLink: longLink },
+            })
+          );
+        }
+      }
+    } catch (e) {
+      if (e instanceof Error) console.log(e.message);
+    }
   };
 
   return (
@@ -83,14 +127,30 @@ const MainPage = () => {
               alt="shorten background"
             />
             <input
+              id="shorten-input"
               className="shorten-it-input"
               placeholder="Shorten  link here..."
+              onChange={handleLinkInput}
             />
+            <div className="display-none-desktop">
+              <span id="warning-text" className="warning-text">
+                Please add a link
+              </span>
+            </div>
+
             <button type="submit" className="shorten-it-btn">
               Shorten It!
             </button>
+
+            <div className="display-none-mobile">
+              <span id="warning-text" className="warning-text">
+                Please add a link
+              </span>
+            </div>
           </form>
         </div>
+
+        <AllLinks />
 
         <div
           className="advanced-statistic-desktop"
