@@ -17,10 +17,6 @@ import { allLinks } from "../features/allLinksSlice";
 import { fetchShortenLink } from "./services/urlShorteningService";
 import AllLinks from "./AllLinks";
 
-interface AllLinksState {
-  values: { shortenLink: string; originalLink: string }[];
-}
-
 const MainPage = () => {
   const shortLink = useAppSelector((state) => state.shortenLink.value);
   const longLink = useAppSelector((state) => state.originalLink.value);
@@ -64,6 +60,9 @@ const MainPage = () => {
               values: { shortenLink: shortLink, originalLink: longLink },
             })
           );
+
+          dispatch(originalLink(""));
+          dispatch(shortenLink(""));
         }
       }
     } catch (e) {
@@ -130,6 +129,7 @@ const MainPage = () => {
               id="shorten-input"
               className="shorten-it-input"
               placeholder="Shorten  link here..."
+              value={longLink}
               onChange={handleLinkInput}
             />
             <div className="display-none-desktop">

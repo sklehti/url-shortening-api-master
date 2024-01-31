@@ -46,7 +46,7 @@ const MobileNavigation = () => {
               </a>
             </h3>
 
-            <hr />
+            <hr className="nav-hr" />
 
             <h3>
               <a className="link" href="#">

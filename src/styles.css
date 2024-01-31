@@ -95,8 +95,22 @@ p {
   z-index: 100;
 }
 
+.copy-btn {
+  color: #fff;
+  background-color: hsl(180, 66%, 49%);
+  border: none;
+  padding: 10px 35px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 0 23px 23px 23px;
+  z-index: 100;
+}
+
 .get-started-btn:hover,
-.shorten-it-btn:hover {
+.shorten-it-btn:hover,
+.copy-btn:hover {
   background-color: hsl(180, 75%, 42%);
 }
 
@@ -121,6 +135,7 @@ p {
   display: none;
   color: hsl(0, 87%, 67%);
   font-size: 12px;
+  font-style: italic;
 }
 
 .display-none-desktop {
@@ -136,10 +151,21 @@ p {
   left: 0;
 }
 
-.shorten-form {
+.shorten-form,
+.link-info {
   /* background-color: hsl(257, 27%, 26%); */
   border-radius: 10px;
   position: relative;
+  width: 60vw;
+}
+
+.link-url-style {
+  text-align: left;
+  padding: 15px 25px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .page-info-part-layout {
@@ -354,7 +380,7 @@ p {
     font-size: 20px;
   }
 
-  hr {
+  .nav-hr {
     border: 1px solid #fff;
     opacity: 0.25;
     float: center;
@@ -384,14 +410,32 @@ p {
     padding: 0 25px;
   }
 
-  .shorten-form {
+  .shorten-form,
+  .link-info {
     display: flex;
     flex-direction: column;
     margin: 70px 0;
     position: relative;
-    width: 100%;
+    min-width: 250px;
     height: 100%;
     background-color: hsl(257, 27%, 26%);
+  }
+  .link-info {
+    background-color: #fff;
+    padding: 0;
+    margin: 20px 0;
+    top: -50px;
+  }
+
+  .info-hr {
+    border: 1px solid hsl(0, 0%, 75%);
+    opacity: 0.2;
+    margin: 0;
+  }
+
+  .warning-text {
+    float: inline-start;
+    padding-bottom: 5px;
   }
 
   .display-none-desktop {
@@ -504,7 +548,8 @@ p {
     z-index: -1;
   }
 
-  .shorten-form {
+  .shorten-form,
+  .link-info {
     position: relative;
     width: 100vw;
     width: calc(100vw - 140px);
@@ -513,6 +558,12 @@ p {
     height: 100%;
     background-color: hsl(257, 27%, 26%);
     z-index: 0;
+  }
+  .link-info {
+    background-color: #fff;
+    padding: 0;
+    margin: 20px 0;
+    top: -90px;
   }
 
   .page-info-part-layout-div {
@@ -526,6 +577,13 @@ p {
     font-size: 18px;
     margin: 35px 28px 35px 7px;
     padding: 10px 30px;
+  }
+
+  .copy-btn {
+    width: 120px;
+    font-size: 16px;
+    margin: 25px 28px 25px 7px;
+    padding: 10px 15px;
   }
 
   .shorten-it-input {
