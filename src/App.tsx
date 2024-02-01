@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./styles.css";
 
 import Headers from "./components/Headers";
@@ -8,12 +8,6 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="container">
-      {/*  <div>
-        {count}
-        <button onClick={() => dispatch(increment())}>+</button>
-        <button onClick={() => dispatch(decrement())}>-</button>
-        --------------------------
-      </div> */}
       <Headers />
       <MainPage />
       <Footer />

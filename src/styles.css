@@ -106,12 +106,13 @@ p {
   border-radius: 5px;
   margin: 0 23px 23px 23px;
   z-index: 100;
+  width: calc(100% - 46px);
 }
 
 .get-started-btn:hover,
 .shorten-it-btn:hover,
 .copy-btn:hover {
-  background-color: hsl(180, 75%, 42%);
+  background-color: hsl(180, 76%, 65%);
 }
 
 .shorten-it-input {
@@ -153,7 +154,6 @@ p {
 
 .shorten-form,
 .link-info {
-  /* background-color: hsl(257, 27%, 26%); */
   border-radius: 10px;
   position: relative;
   width: 60vw;
@@ -166,6 +166,20 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  max-width: 400px;
+}
+.link-url-style:hover {
+  overflow: visible;
+}
+.link-url-style:hover {
+  position: relative;
+  background-color: white;
+  /* box-shadow: 0 0 4px 0 black; */
+  border-radius: 3px;
+  left: 0;
+  z-index: 1000;
+  white-space: wrap;
+  word-break: break-all;
 }
 
 .page-info-part-layout {
@@ -427,6 +441,10 @@ p {
     top: -50px;
   }
 
+  .link-url-style:hover {
+    position: relative;
+  }
+
   .info-hr {
     border: 1px solid hsl(0, 0%, 75%);
     opacity: 0.2;
@@ -560,6 +578,10 @@ p {
     z-index: 0;
   }
   .link-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     padding: 0;
     margin: 20px 0;
@@ -572,17 +594,23 @@ p {
   }
 
   .shorten-it-btn {
-    /* width: calc(100% - 46px); */
     width: 160px;
     font-size: 18px;
     margin: 35px 28px 35px 7px;
     padding: 10px 30px;
   }
 
+  .link-info-desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .copy-btn {
     width: 120px;
+    min-width: 120px;
     font-size: 16px;
-    margin: 25px 28px 25px 7px;
+    margin: 10px 15px 10px 0px;
     padding: 10px 15px;
   }
 

@@ -13,7 +13,7 @@ const initialState: OriginalLinkState = {
 
 export const originalLinkSlice = createSlice({
   name: "originalLink",
-  // `createSlice` will infer the state type from the `initialState` argument
+
   initialState,
   reducers: {
     originalLink: (state, action: PayloadAction<string>) => {
@@ -24,7 +24,6 @@ export const originalLinkSlice = createSlice({
 
 export const { originalLink } = originalLinkSlice.actions;
 
-// Other code such as selectors can use the imported `RootState` type
 export const selectOriginalLink = (state: RootState) =>
   state.originalLink.value;
 

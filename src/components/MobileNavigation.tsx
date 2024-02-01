@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { openMenu, closeMenu } from "../features/hamburgermenuSlice";
+import { closeMenu } from "../features/hamburgermenuSlice";
 
 const MobileNavigation = () => {
   const menuOpen = useAppSelector((state) => state.hamburgermenu.value);

@@ -16,9 +16,9 @@ import { allLinks } from "../features/allLinksSlice";
 
 import { fetchShortenLink } from "./services/urlShorteningService";
 import AllLinks from "./AllLinks";
+import Modal from "./Modal";
 
 const MainPage = () => {
-  const shortLink = useAppSelector((state) => state.shortenLink.value);
   const longLink = useAppSelector((state) => state.originalLink.value);
 
   const dispatch = useAppDispatch();
@@ -54,15 +54,18 @@ const MainPage = () => {
 
         dispatch(shortenLink(result));
 
-        if (shortLink && longLink) {
+        if (result && longLink) {
           dispatch(
             allLinks({
-              values: { shortenLink: shortLink, originalLink: longLink },
+              values: { shortenLink: result, originalLink: longLink },
             })
           );
 
           dispatch(originalLink(""));
           dispatch(shortenLink(""));
+
+          $(".copy-btn").css("backgroundColor", "hsl(180, 66%, 49%)");
+          $(".copy-btn").html("Copy");
         }
       }
     } catch (e) {
@@ -72,21 +75,7 @@ const MainPage = () => {
 
   return (
     <div style={{ position: "relative" }}>
-      <div id="myModal" className="modal">
-        <div className="modal-content">
-          <span className="close">&times;</span>
-          <p
-            style={{
-              color: "hsl(257, 27%, 26%",
-              fontSize: "24px",
-              fontWeight: "800",
-            }}
-          >
-            Coming later..
-          </p>
-        </div>
-      </div>
-
+      <Modal />
       <MobileNavigation />
 
       <img
