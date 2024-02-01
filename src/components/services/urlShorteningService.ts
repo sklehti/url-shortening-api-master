@@ -1,4 +1,28 @@
+import fetchToCurl from "fetch-to-curl";
+
 export const fetchShortenLink = async (longUrl: string) => {
+  const urlEncode = encodeURI(longUrl);
+
+  const url = "https://cleanuri.com/api/v1/shorten";
+  const options = {
+    headers: {
+      "Access-Control-Allow-Origin":
+        "https://url-shortening-api-master-sklehti.vercel.app/",
+    },
+    method: "post",
+    body: "url=https%3A%2F%2Fgoogle.com%2F",
+  };
+  // Log your request
+  console.log(fetchToCurl(url, options));
+  // Do your request
+  const response = await fetch(url, options);
+  console.log(response, "dfklj");
+
+  // const linkInfo = await response.json();
+  return "";
+};
+
+/* export const fetchShortenLink = async (longUrl: string) => {
   const response = await fetch("https://api-ssl.bitly.com/v4/shorten", {
     method: "POST",
     mode: "cors",
@@ -15,4 +39,4 @@ export const fetchShortenLink = async (longUrl: string) => {
 
   const linkInfo = await response.json();
   return linkInfo.link;
-};
+}; */
