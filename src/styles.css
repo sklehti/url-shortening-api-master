@@ -156,10 +156,11 @@ p {
 .link-info {
   border-radius: 10px;
   position: relative;
-  width: 60vw;
+  width: 70vw;
 }
 
-.link-url-style {
+.link-url-style,
+.shorten-link-url-style {
   text-align: left;
   padding: 15px 25px;
   font-weight: 700;
@@ -307,6 +308,11 @@ p {
 @media only screen and (max-width: 450px) {
   .page-info-part-layout-div {
     padding: 25px 10px;
+  }
+
+  .shorten-form,
+  .link-info {
+    width: 90vw;
   }
 
   .shorten-it-btn {

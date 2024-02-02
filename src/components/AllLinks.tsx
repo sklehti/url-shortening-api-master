@@ -26,7 +26,7 @@ const AllLinks = () => {
 
           <div className="link-info-desktop">
             <div
-              className="link-url-style"
+              className="shorten-link-url-style"
               style={{ color: "hsl(180, 66%, 49%)" }}
             >
               {l.values.shortenLink}

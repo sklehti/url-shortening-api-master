@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import firstImgMobile from "../images/illustration-working-mobile.svg";
 import firstImg from "../images/illustration-working.svg";
 import brandRegocnition from "../images/icon-brand-recognition.svg";
@@ -18,9 +18,13 @@ import { fetchShortenLink } from "./services/urlShorteningService";
 import AllLinks from "./AllLinks";
 import Modal from "./Modal";
 
+interface State {
+  shortenLink: string;
+  originalLink: string;
+}
+
 const MainPage = () => {
   const longLink = useAppSelector((state) => state.originalLink.value);
-
   const dispatch = useAppDispatch();
 
   $(function () {
@@ -60,6 +64,12 @@ const MainPage = () => {
               values: { shortenLink: result, originalLink: longLink },
             })
           );
+
+          const store: State[] = JSON.parse(
+            localStorage.getItem("links") || "[]"
+          );
+          store.push({ shortenLink: result, originalLink: longLink });
+          localStorage.setItem("links", JSON.stringify(store));
 
           dispatch(originalLink(""));
           dispatch(shortenLink(""));

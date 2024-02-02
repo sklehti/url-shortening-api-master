@@ -20,7 +20,8 @@ Users should be able to:
 ### Built with
 
 - Mobile-first workflow
-- [React](https://reactjs.org/) 
+- [React](https://reactjs.org/)
 - CSS
 - Typescript
 - Redux
+- [cleanuri](https://cleanuri.com/docs)

@@ -1,5 +1,24 @@
+import axios, { AxiosError } from "axios";
+
 export const fetchShortenLink = async (longUrl: string) => {
-  const response = await fetch("https://api-ssl.bitly.com/v4/shorten", {
+  try {
+    const response = await axios.post(
+      "https://url-shortening-api-backend.vercel.app/links",
+      { longUrl }
+    );
+
+    return response.data.result_url;
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      console.log(error.status);
+      console.error(error.response);
+      alert("Incorrect url address!");
+    } else {
+      console.error(error);
+    }
+  }
+
+  /* const response = await fetch("https://api-ssl.bitly.com/v4/shorten", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -14,5 +33,5 @@ export const fetchShortenLink = async (longUrl: string) => {
   });
 
   const linkInfo = await response.json();
-  return linkInfo.link;
+  return linkInfo.link; */
 };
