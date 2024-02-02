@@ -25,3 +25,6 @@ Users should be able to:
 - Typescript
 - Redux
 - [cleanuri](https://cleanuri.com/docs)
+
+### Note! 
+- The backend of this application is: [url shortening api backend](https://github.com/sklehti/url-shortening-api-backend)
