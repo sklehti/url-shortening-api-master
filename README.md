@@ -24,7 +24,13 @@ Users should be able to:
 - CSS
 - Typescript
 - Redux
-- [cleanuri](https://cleanuri.com/docs)
 
-### Note! 
+### Note!
+
 - The backend of this application is: [url shortening api backend](https://github.com/sklehti/url-shortening-api-backend)
+
+## To run locally
+
+- `npm install`
+- `npm start`
+- Open the app on http://localhost:3000/
