@@ -27,7 +27,6 @@ const Modal = () => {
         </p>
         <p
           style={{
-            lineHeight: 0,
             color: "hsl(257, 27%, 26%",
             fontWeight: "800",
           }}
