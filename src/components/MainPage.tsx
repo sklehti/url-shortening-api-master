@@ -45,11 +45,26 @@ const MainPage = () => {
     dispatch(originalLink(e.currentTarget.value));
   };
 
+  const checkUrl = (string: string) => {
+    try {
+      new URL(string);
+    } catch (error) {
+      console.log("error is", error);
+      return false;
+    }
+    return true;
+  };
+
   const handleUrlShorten = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      if (longLink.length < 1) {
+      if (
+        longLink.length < 1 ||
+        !checkUrl(longLink) ||
+        longLink.includes("localhost") ||
+        longLink.includes("127.0.0.1")
+      ) {
         $("#shorten-input").css("border", "3px solid  hsl(0, 87%, 67%)");
         $("#shorten-input").addClass("warning-input-placeholder");
         $(".warning-text").css("display", "initial");
@@ -133,7 +148,7 @@ const MainPage = () => {
             />
             <div className="display-none-desktop">
               <span id="warning-text" className="warning-text">
-                Please add a link
+                Please add a correct link
               </span>
             </div>
 
@@ -143,7 +158,7 @@ const MainPage = () => {
 
             <div className="display-none-mobile">
               <span id="warning-text" className="warning-text">
-                Please add a link
+                Please add a correct link
               </span>
             </div>
           </form>
